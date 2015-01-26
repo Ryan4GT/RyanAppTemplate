@@ -73,7 +73,7 @@ public class ActivityMain extends ActivityBase {
                 break;
             case ME_TAB:
                 switchFragment(FragmentMe.newInstance(new HashMap<String, String>()), R.id.activityMainContainer, false);
-                meTabImage.setImageResource(R.drawable.main_selected);
+                meTabImage.setImageResource(R.drawable.me_selected);
                 meTabTitle.setTextColor(getResources().getColor(R.color.theme_color));
                 break;
         }
