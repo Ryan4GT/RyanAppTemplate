@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!--  Toolbar背景颜色   -->
+        <item name="colorPrimary">@color/white</item>
+        <!--  应用中的字体默认颜色  -->
+        <item name="android:textColor">@color/black</item>
+        <!--  Toolbar的标题颜色值  -->
+        <item name="android:textColorPrimary">@color/black</item>
+        <!--  Toolbar的选项菜单的颜色值  -->
+        <item name="actionMenuTextColor">@color/black</item>
+    </style>
+
+
+</resources>
