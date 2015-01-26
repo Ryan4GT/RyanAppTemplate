@@ -3,6 +3,7 @@
 
     <color name="white">#ffffff</color>
     <color name="activity_background">#efefef</color>
+    <color name="theme_color">#FF1C969C</color>
     <color name="devider">#bbbbbb</color>
-    <color name="black">#000000</color>
+    <color name="black">#ff000000</color>
 </resources>

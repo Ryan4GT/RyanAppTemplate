@@ -16,10 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.ActivityBase"
-            android:label="@string/activity_base_title" >
-        </activity>
     </application>
 
 </manifest>

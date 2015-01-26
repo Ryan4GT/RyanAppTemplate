@@ -14,6 +14,7 @@
         android:layout_height="wrap_content">
 
         <RelativeLayout
+            android:id="@+id/mainTab"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content">
@@ -36,6 +37,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/orderTab"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content">
@@ -58,6 +60,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/messageTab"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content">
@@ -80,6 +83,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/meTab"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content">
@@ -110,6 +114,7 @@
         android:layout_height="@dimen/_1px" />
 
     <LinearLayout
+
         android:layout_above="@id/devider"
         android:orientation="vertical"
         android:id="@+id/activityMainContainer"

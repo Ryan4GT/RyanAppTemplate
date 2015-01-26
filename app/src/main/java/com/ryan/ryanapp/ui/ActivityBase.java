@@ -46,40 +46,20 @@ public abstract class ActivityBase extends ActionBarActivity implements OnMenuIt
         return false;
     }
 
-    /**
-     * 根据应用传递Fragment的关键字打开响应的页面
-     * @param fragmentKey FragmentBase对应的数值
-     * @return
-     */
-    private FragmentBase getBeingOpenedFragment(int fragmentKey) {
-
-        FragmentBase beingOpenedFragment = null;
-        switch (fragmentKey) {
-
-        }
-        return beingOpenedFragment;
-    }
 
     /**
      * 切换Frament
-     * @param fragmentKey    FragmentBase对应的key
      * @param addToBackStack 是否放入返回栈
      */
-    protected void switchFragment(int fragmentKey, boolean addToBackStack) {
+    protected void switchFragment(FragmentBase beingOpenedFragment, int container, boolean addToBackStack) {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        FragmentBase beingOpenedFragment = getBeingOpenedFragment(fragmentKey);
-        if (beingOpenedFragment.isAdded()) {
-            transaction.show(beingOpenedFragment);
-        } else {
-            transaction.setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out);
-            if (addToBackStack) {
-                transaction.addToBackStack(beingOpenedFragment.getClass().getSimpleName());
-            }
-            transaction.replace(R.id.baseViewContainer, beingOpenedFragment, beingOpenedFragment.getClass().getSimpleName());
+        transaction.setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out);
+        if (addToBackStack) {
+            transaction.addToBackStack(beingOpenedFragment.getClass().getSimpleName());
         }
-
+        transaction.replace(container, beingOpenedFragment, beingOpenedFragment.getClass().getSimpleName());
         transaction.commit();
     }
 
@@ -106,4 +86,6 @@ public abstract class ActivityBase extends ActionBarActivity implements OnMenuIt
     public void onFragmentInteraction(Map<String, Object> args) {
 
     }
+
+
 }

@@ -6,5 +6,9 @@
     <string name="action_settings" translatable="false">Settings</string>
     <string name="activity_base_title">ActivityBase</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment_main_title">FragmentMian</string>
+    <string name="fragment_order_title">FragmentOrder</string>
+    <string name="fragment_message_title">FragmentMessage</string>
+    <string name="fragment_me_title">FragmentMe</string>
 
 </resources>

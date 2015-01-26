@@ -2,10 +2,15 @@ package com.ryan.ryanapp.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
-import java.util.Iterator;
+import com.ryan.ryanapp.Utils.LogUtils;
+
 import java.util.Map;
 
 /**
@@ -15,42 +20,63 @@ import java.util.Map;
  */
 public class FragmentBase extends Fragment {
 
-    private OnFragmentInteractionListener mListener;
+    protected  String TAG;
+    protected OnFragmentInteractionListener mListener;
     protected View fragmentRootView;
+    protected Toolbar toolbar;
 
-    /**
-     * Use this factory method to create a new instance of this fragment using the provided parameters.
-     * @return A new instance of fragment FragmentBase.
-     */
-    public static FragmentBase newInstance(Map<String, String> params) {
-        FragmentBase fragment = new FragmentBase();
-        Bundle args = new Bundle();
-        Iterator<String> iterator = params.keySet().iterator();
-        while (iterator.hasNext()) {
-            String key = iterator.next();
-            args.putString(key, params.get(key));
-        }
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     public FragmentBase() {
+        TAG = getClass().getSimpleName();
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        LogUtils.i(TAG, "onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)");
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        LogUtils.i(TAG, "onActivityCreated(@Nullable Bundle savedInstanceState)");
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        LogUtils.i(TAG, "onAttach(Activity activity)");
         try {
             mListener = (OnFragmentInteractionListener) activity;
+            toolbar = ((ActivityBase) activity).toolbar;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement OnFragmentInteractionListener");
         }
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        LogUtils.i(TAG, "onPause()");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        LogUtils.i(TAG, "onResume()");
+    }
+
+    @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+//        mListener = null;
+        LogUtils.i(TAG, "onDetach()");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        LogUtils.i(TAG, "onDestroy()");
     }
 
     /**

@@ -24,4 +24,12 @@ public final class Constants {
         IMAGE, VIDEO, AUDIO, TEXT
     }
 
+    public static class FRAGMENT_KEY {
+        public static final int FRAGMENT_MAIN = 1;
+        public static final int FRAGMENT_ORDER = 2;
+        public static final int FRAGMENT_MESSAGE = 3;
+        public static final int FRAGMENT_ME = 4;
+    }
+
+
 }
