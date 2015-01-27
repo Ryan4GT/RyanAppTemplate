@@ -10,5 +10,6 @@
     <string name="fragment_order_title">FragmentOrder</string>
     <string name="fragment_message_title">FragmentMessage</string>
     <string name="fragment_me_title">FragmentMe</string>
+    <string name="load_more">加载更多……</string>
 
 </resources>

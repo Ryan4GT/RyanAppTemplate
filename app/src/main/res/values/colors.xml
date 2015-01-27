@@ -6,4 +6,5 @@
     <color name="theme_color">#FF1C969C</color>
     <color name="devider">#bbbbbb</color>
     <color name="black">#ff000000</color>
+    <color name="red_text_color">#ff0000</color>
 </resources>
