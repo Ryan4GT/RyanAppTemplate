@@ -5,9 +5,10 @@
              android:background="@drawable/ic_launcher"
              tools:context="com.ryan.ryanapp.ui.FragmentSplash">
 
-    <TextView
+    <ImageView
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:src="@drawable/naruto"/>
 
 </FrameLayout>
