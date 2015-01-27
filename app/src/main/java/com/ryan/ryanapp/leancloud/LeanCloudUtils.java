@@ -15,6 +15,7 @@ import com.avos.avoscloud.SaveCallback;
 import com.avos.avoscloud.SignUpCallback;
 import com.ryan.ryanapp.Constants;
 import com.ryan.ryanapp.Utils.LogUtils;
+import com.ryan.ryanapp.leancloud.bean.User;
 
 import java.util.UUID;
 
@@ -58,7 +59,7 @@ public class LeanCloudUtils {
 
             @Override
             public void done(AVException avException) {
-                if (avException == null) {
+                if(avException == null) {
                     listener.onLoginOrSignupResult(true, "恭喜你，注册成功!");
                 } else {
                     int code = avException.getCode();
@@ -76,11 +77,12 @@ public class LeanCloudUtils {
 
             @Override
             public void done(AVUser avUser, AVException avException) {
-                if (avException == null) {
+                if(avException == null) {
                     listener.onLoginOrSignupResult(true, "恭喜你，登录成功!");
                 } else {
                     int code = avException.getCode();
-                    listener.onLoginOrSignupResult(false, code + " : " + avException.getMessage());
+                    LogUtils.e(TAG,code + " : " + avException.getMessage());
+                    listener.onLoginOrSignupResult(false, code + "");
                 }
             }
         });
@@ -110,8 +112,8 @@ public class LeanCloudUtils {
             avFile.saveInBackground(new SaveCallback() {
                 @Override
                 public void done(AVException avException) {
-                    if (listener != null) {
-                        if (avException == null) {
+                    if(listener != null) {
+                        if(avException == null) {
                             String fileUrl = avFile.getUrl();
                             listener.onFileLoadingDone(true, fileUrl, "文件上传成功！");
                         } else {
@@ -123,14 +125,14 @@ public class LeanCloudUtils {
             }, new ProgressCallback() {
                 @Override
                 public void done(Integer integer) {
-                    if (listener != null) {
+                    if(listener != null) {
                         listener.onFileLoadingProgress(integer);
                     }
                 }
             });
         } catch (Exception e) {
             LogUtils.e(TAG, e.getMessage());
-            if (listener != null) {
+            if(listener != null) {
                 listener.onFileLoadingDone(false, "", "文件上传失败！");
                 LogUtils.e(TAG, e.getMessage());
             }

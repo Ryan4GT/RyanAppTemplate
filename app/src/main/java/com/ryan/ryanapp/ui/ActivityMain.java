@@ -1,12 +1,16 @@
 package com.ryan.ryanapp.ui;
 
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.avos.avoscloud.AVUser;
 import com.ryan.ryanapp.R;
+import com.ryan.ryanapp.Utils.LogUtils;
+import com.ryan.ryanapp.leancloud.LeanCloudUtils;
 
 import java.util.HashMap;
 
@@ -22,7 +26,7 @@ public class ActivityMain extends ActivityBase {
     protected void initView() {
         toolbar.setTitle("MainActivity");
         toolbar.setNavigationIcon(R.drawable.ic_launcher);
-        toolbar.inflateMenu(R.menu.menu_main);
+        toolbar.inflateMenu(R.menu.activity_main_menu);
         baseViewContainer.addView(View.inflate(this, R.layout.activity_main, null));
         View mainTab = baseViewContainer.findViewById(R.id.mainTab);
         View orderTab = baseViewContainer.findViewById(R.id.orderTab);
@@ -33,10 +37,14 @@ public class ActivityMain extends ActivityBase {
         messageTab.setOnClickListener(this);
         meTab.setOnClickListener(this);
         setCurrentTab(MAIN_TAB);
+        LogUtils.i(TAG, AVUser.getCurrentUser() == null ? "当前用户为空" : "当前用户是否已登录 ： " + AVUser.getCurrentUser().isAuthenticated());
+        if(AVUser.getCurrentUser() == null || AVUser.getCurrentUser().isAuthenticated()) {
+            startActivity(new Intent(this, ActivityLogin.class));
+        }
     }
 
     public void setCurrentTab(int position) {
-        if (position == currentTab) {
+        if(position == currentTab) {
             return;
         }
         ImageView mainTabImage = (ImageView) baseViewContainer.findViewById(R.id.mainTabImage);
@@ -101,14 +109,14 @@ public class ActivityMain extends ActivityBase {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.activity_main_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if(id == R.id.action_settings) {
             return true;
         }
         return super.onOptionsItemSelected(item);
