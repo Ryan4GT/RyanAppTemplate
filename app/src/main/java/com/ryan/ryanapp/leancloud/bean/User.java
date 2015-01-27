@@ -1,11 +1,10 @@
-package com.ryan.ryanapp.leancloud;
+package com.ryan.ryanapp.leancloud.bean;
 
 import com.avos.avoscloud.AVUser;
 
 public class User extends AVUser {
 
-    public User() {
-    }
+    public User() {}
 
     public String getHeadImage() {
         return getString("headImage");
@@ -28,6 +27,5 @@ public class User extends AVUser {
     public void setDisplayName(String displayName) {
         put("displayName", displayName);
     }
-
 
 }

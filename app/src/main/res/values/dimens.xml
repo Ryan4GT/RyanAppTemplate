@@ -5,4 +5,6 @@
     <dimen name="_1px">1px</dimen>
     <dimen name="_5dp">5dp</dimen>
     <dimen name="_56dp">56dp</dimen>
+    <dimen name="_16dp">16dp</dimen>
+
 </resources>

@@ -6,8 +6,11 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
-import com.baidu.mapapi.SDKInitializer;
 import com.ryan.ryanapp.model.Size;
+
+import com.ryan.ryanapp.leancloud.bean.Goods;
+import com.ryan.ryanapp.leancloud.LeanCloudUtils;
+import com.ryan.ryanapp.leancloud.bean.GoodsComment;
 
 
 /**
@@ -20,10 +23,13 @@ public class RyanApp extends Application {
     public static RyanApp instance;
     private Size screenSize;
 
+
     @Override
     public void onCreate() {
         super.onCreate();
-
+        instance = this;
+        Class[] clazz = new Class[]{Goods.class, GoodsComment.class};
+        LeanCloudUtils.initLeanCloud(this, false, clazz);
     }
 
     /**

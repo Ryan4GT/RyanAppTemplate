@@ -47,7 +47,7 @@ public class FragmentOrder extends FragmentBase {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        toolbar.setTitle("FragmentOrder");
+        toolbar.setTitle(R.string.fragment_order_title);
         toolbar.getMenu().clear();
     }
 }

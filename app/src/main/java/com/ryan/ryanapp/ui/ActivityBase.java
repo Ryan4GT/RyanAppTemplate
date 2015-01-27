@@ -1,6 +1,8 @@
 package com.ryan.ryanapp.ui;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
@@ -15,16 +17,17 @@ import com.ryan.ryanapp.Utils.LogUtils;
 
 import java.util.Map;
 
-
-public abstract class ActivityBase extends ActionBarActivity implements OnMenuItemClickListener, View.OnClickListener, FragmentBase.OnFragmentInteractionListener {
+public abstract class ActivityBase extends ActionBarActivity implements OnMenuItemClickListener, View.OnClickListener, FragmentBase.OnFragmentInteractionListener, Handler.Callback {
     protected String TAG;
     protected Toolbar toolbar;
     protected FrameLayout baseViewContainer;
+    protected Handler baseHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TAG = getClass().getSimpleName();
+        baseHandler = new Handler(this);
         setContentView(R.layout.activity_base);
         toolbar = (Toolbar) findViewById(R.id.toolBar);
         baseViewContainer = (FrameLayout) findViewById(R.id.baseViewContainer);
@@ -87,5 +90,7 @@ public abstract class ActivityBase extends ActionBarActivity implements OnMenuIt
 
     }
 
-
+    @Override public boolean handleMessage(Message msg) {
+        return false;
+    }
 }

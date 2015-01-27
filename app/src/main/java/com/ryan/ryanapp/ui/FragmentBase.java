@@ -2,6 +2,8 @@ package com.ryan.ryanapp.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
@@ -16,15 +18,14 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass. Activities that contain this fragment must implement the
  * {@link FragmentBase.OnFragmentInteractionListener} interface to handle interaction events.
- * Use the {@link FragmentBase#newInstance} factory method to create an instance of this fragment.
  */
-public class FragmentBase extends Fragment {
+public class FragmentBase extends Fragment implements Handler.Callback{
 
     protected  String TAG;
     protected OnFragmentInteractionListener mListener;
     protected View fragmentRootView;
     protected Toolbar toolbar;
-
+    protected Handler baseHandler;
 
     public FragmentBase() {
         TAG = getClass().getSimpleName();
@@ -49,6 +50,8 @@ public class FragmentBase extends Fragment {
         try {
             mListener = (OnFragmentInteractionListener) activity;
             toolbar = ((ActivityBase) activity).toolbar;
+            toolbar.setVisibility(View.VISIBLE);
+            baseHandler = new Handler(this);
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement OnFragmentInteractionListener");
         }
@@ -89,4 +92,7 @@ public class FragmentBase extends Fragment {
         public void onFragmentInteraction(Map<String, Object> args);
     }
 
+    @Override public boolean handleMessage(Message msg) {
+        return false;
+    }
 }

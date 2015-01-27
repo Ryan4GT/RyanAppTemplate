@@ -2,15 +2,13 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.ryan.ryanapp.ui.FragmentMain">
+             android:background="@drawable/ic_launcher"
+             tools:context="com.ryan.ryanapp.ui.FragmentSplash">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/fragment_main_title"/>
-
-
-
+        android:src="@drawable/naruto"/>
 
 </FrameLayout>
