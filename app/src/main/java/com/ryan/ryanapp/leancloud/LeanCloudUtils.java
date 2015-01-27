@@ -26,9 +26,9 @@ import java.util.UUID;
  */
 public class LeanCloudUtils {
     protected static final String TAG = "LeanCloudUtils";
-    private static final String LEAN_CLOUD_APPID = "0vz1k3qsljkxrei2o7i5j8puzvvwi6azatroz5zckxfzutul";
-    private static final String LEAN_CLOUD_APPKEY = "mr2tt50qqd2c0s1jwagnnvrmut344av41eoinq1fo1wxb01o";
-    private static final String LEAN_CLOUD_APP_MASTER_KEY = "f0tz40i777ew03idfqn7p9mq522j4qp4zmfr1f4bq3p93rp6";
+    private static final String LEAN_CLOUD_APPID = "";
+    private static final String LEAN_CLOUD_APPKEY = "";
+    private static final String LEAN_CLOUD_APP_MASTER_KEY = "";
 
     /**
      * 在应用的Application的onCreate方法中初始化LeanCloud
