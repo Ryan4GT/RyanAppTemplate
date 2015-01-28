@@ -46,4 +46,6 @@ public class TouchableRecyclerView extends RecyclerView {
             return super.dispatchTouchEvent(ev);
         return true;
     }
+
+
 }

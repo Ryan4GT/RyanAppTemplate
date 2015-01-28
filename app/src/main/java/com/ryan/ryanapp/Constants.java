@@ -29,6 +29,7 @@ public final class Constants {
         public static final int FRAGMENT_ORDER = 2;
         public static final int FRAGMENT_MESSAGE = 3;
         public static final int FRAGMENT_ME = 4;
+
     }
 
 

@@ -27,7 +27,7 @@ public class GoodsComment extends AVObject {
         return getString("commentContent");
     }
 
-    public void setGoodsID(String goodsID){
+    public void setGoodsID(String goodsID){//商品ID
         put("goodsID", goodsID);
     }
 
@@ -35,7 +35,7 @@ public class GoodsComment extends AVObject {
         return getString("goodsID");
     }
 
-    public void setReviewer(User reviewer){
+    public void setReviewer(User reviewer){//评论商品的评论者
         put("reviewer", reviewer);
     }
 
@@ -45,6 +45,19 @@ public class GoodsComment extends AVObject {
         } catch (Exception e) {
             LogUtils.e(TAG, e.getMessage());
             return null;
+        }
+    }
+
+    public void setReviewedReviwer(User reviewedReviwer){//被评论的评论者
+        put("reviewedReviwer", reviewedReviwer);
+    }
+
+    public User getReviewedReviwer(){
+        try {
+            return getAVObject("reviewedReviwer", User.class);
+        } catch (Exception e) {
+            LogUtils.e(TAG, e.getMessage());
+            return  null;
         }
     }
 

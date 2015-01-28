@@ -3,6 +3,7 @@ package com.ryan.ryanapp.ui;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -38,9 +39,9 @@ public class ActivityMain extends ActivityBase {
         meTab.setOnClickListener(this);
         setCurrentTab(MAIN_TAB);
         LogUtils.i(TAG, AVUser.getCurrentUser() == null ? "当前用户为空" : "当前用户是否已登录 ： " + AVUser.getCurrentUser().isAuthenticated());
-        if(AVUser.getCurrentUser() == null || AVUser.getCurrentUser().isAuthenticated()) {
-            startActivity(new Intent(this, ActivityLogin.class));
-        }
+//        if(AVUser.getCurrentUser() == null || AVUser.getCurrentUser().isAuthenticated()) {
+//            startActivity(new Intent(this, ActivityLogin.class));
+//        }
     }
 
     public void setCurrentTab(int position) {
@@ -123,4 +124,10 @@ public class ActivityMain extends ActivityBase {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override public boolean dispatchTouchEvent(MotionEvent ev) {
+        if(currentTab == ORDER_TAB){
+            FragmentOrder.dispatchTouchEvent(ev);
+        }
+        return super.dispatchTouchEvent(ev);
+    }
 }

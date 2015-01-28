@@ -6,14 +6,6 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
-import com.nostra13.universalimageloader.cache.disc.DiskCache;
-import com.nostra13.universalimageloader.cache.disc.impl.BaseDiscCache;
-import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
-import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.ryan.ryanapp.leancloud.UniversualImageLoaderUtils;
 import com.ryan.ryanapp.model.Size;
 
@@ -21,7 +13,6 @@ import com.ryan.ryanapp.leancloud.bean.Goods;
 import com.ryan.ryanapp.leancloud.LeanCloudUtils;
 import com.ryan.ryanapp.leancloud.bean.GoodsComment;
 
-import java.io.File;
 
 /**
  * Created by Ryan

@@ -1,14 +1,17 @@
 package com.ryan.ryanapp.ui.customeview;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.OnScrollListener;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.TranslateAnimation;
 
 import com.ryan.ryanapp.R;
 import com.ryan.ryanapp.Utils.LogUtils;
@@ -37,6 +40,7 @@ public abstract class PullToRefreshRecyclerView<T> extends SwipeRefreshLayout im
         super(context, attrs);
         addRecyclerView();
     }
+
 
     private void addRecyclerView() {
 
@@ -114,7 +118,7 @@ public abstract class PullToRefreshRecyclerView<T> extends SwipeRefreshLayout im
     public void setRefreshing(boolean refreshing) {
 
         super.setRefreshing(refreshing);
-        recyclerView.setTouchable(!refreshing);
+//        recyclerView.setTouchable(!refreshing);
         if (!canLoadMore) {
             footerView.setLoadingText("没有更多数据");
             footerView.setProgressBarVisibility(View.GONE);
@@ -173,4 +177,6 @@ public abstract class PullToRefreshRecyclerView<T> extends SwipeRefreshLayout im
             return onCreateBaseViewHolder(viewGroup, itemType);
         }
     }
+
+
 }

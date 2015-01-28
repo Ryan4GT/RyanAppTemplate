@@ -45,7 +45,7 @@ public class Goods extends AVObject {
         put("goodsOwner", goodsOwner);
     }
 
-    public User getGoodsOwner(){
+    public User getGoodsOwner(){//商品拥有者
         try {
             return getAVObject("goodsOwner", User.class);
         } catch (Exception e) {
@@ -54,14 +54,7 @@ public class Goods extends AVObject {
         }
     }
 
-    public void setCommentIDs(String commentIDs){
-        put("commentIDs", getCommentIDs().concat("commentIDs"));
-    }
 
-    public String getCommentIDs(){
-
-        return StringUtil.isEmpty(getString("commentIDs")) ? "" : getString("commentIDs");
-    }
 
 
 }

@@ -1,5 +1,6 @@
 package com.ryan.ryanapp.ui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -71,7 +72,7 @@ public class FragmentMessage extends FragmentBase {
                 }
             }
             @Override public RecyclerView.ViewHolder onCreateBaseViewHolder(ViewGroup viewGroup, int itemType) {
-                View itemView = View.inflate(getActivity(), R.layout.fragment_message_item, null);
+                View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragment_message_item, viewGroup, false);
                 return new FriendsViewHolder(itemView);
             }
             @Override public int getBaseItemViewType(int position) {
