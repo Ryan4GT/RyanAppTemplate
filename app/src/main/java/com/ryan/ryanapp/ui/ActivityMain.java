@@ -90,6 +90,7 @@ public class ActivityMain extends ActivityBase {
 
     @Override
     public void onClick(View v) {
+        LogUtils.i(TAG, "点击了底部导航……");
         super.onClick(v);
         switch (v.getId()) {
             case R.id.mainTab:

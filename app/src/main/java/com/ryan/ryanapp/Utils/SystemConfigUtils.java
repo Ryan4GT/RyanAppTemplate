@@ -1,8 +1,10 @@
 package com.ryan.ryanapp.Utils;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Environment;
 
 import com.avos.avoscloud.AVUser;
+import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.ryan.ryanapp.RyanApp;
 import com.ryan.ryanapp.leancloud.bean.User;
 /**
@@ -48,5 +50,7 @@ public class SystemConfigUtils {
         user.put("password", password);
         return user;
     }
+
+
 
 }

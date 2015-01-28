@@ -11,17 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.ryan.ryanapp.Utils.LogUtils;
 
 import java.util.Map;
 
-/**
- * A simple {@link Fragment} subclass. Activities that contain this fragment must implement the
- * {@link FragmentBase.OnFragmentInteractionListener} interface to handle interaction events.
- */
-public class FragmentBase extends Fragment implements Handler.Callback{
+public class FragmentBase extends Fragment implements Handler.Callback {
 
-    protected  String TAG;
+    protected String TAG;
     protected OnFragmentInteractionListener mListener;
     protected View fragmentRootView;
     protected Toolbar toolbar;
@@ -60,26 +57,25 @@ public class FragmentBase extends Fragment implements Handler.Callback{
     @Override
     public void onPause() {
         super.onPause();
-        LogUtils.i(TAG, "onPause()");
+        //        LogUtils.i(TAG, "onPause()");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        LogUtils.i(TAG, "onResume()");
+        //        LogUtils.i(TAG, "onResume()");
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-//        mListener = null;
-        LogUtils.i(TAG, "onDetach()");
+        //        LogUtils.i(TAG, "onDetach()");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LogUtils.i(TAG, "onDestroy()");
+        //        LogUtils.i(TAG, "onDestroy()");
     }
 
     /**
@@ -95,4 +91,6 @@ public class FragmentBase extends Fragment implements Handler.Callback{
     @Override public boolean handleMessage(Message msg) {
         return false;
     }
+
+
 }
