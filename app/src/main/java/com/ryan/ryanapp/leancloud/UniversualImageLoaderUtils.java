@@ -30,7 +30,6 @@ public class UniversualImageLoaderUtils {
     }
 
     public static DisplayImageOptions getDisplayImageOptions(){
-
         return  new DisplayImageOptions.Builder().considerExifParams(true).cacheInMemory(true).cacheOnDisk(true).showImageOnLoading(R.drawable.naruto).displayer(new FadeInBitmapDisplayer(3000)).build();
     }
 

@@ -7,4 +7,5 @@
     <color name="devider">#bbbbbb</color>
     <color name="black">#ff000000</color>
     <color name="red_text_color">#ff0000</color>
+    <color name="transparent">#00000000</color>
 </resources>

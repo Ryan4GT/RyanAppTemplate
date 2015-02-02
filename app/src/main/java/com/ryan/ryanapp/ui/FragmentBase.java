@@ -1,6 +1,7 @@
 package com.ryan.ryanapp.ui;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,19 +11,22 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.ryan.ryanapp.R;
 import com.ryan.ryanapp.Utils.LogUtils;
+import com.ryan.ryanapp.ui.customeview.TianmaDailogBuilder;
 
 import java.util.Map;
 
-public class FragmentBase extends Fragment implements Handler.Callback {
+public class FragmentBase extends Fragment implements Handler.Callback, View.OnClickListener {
 
     protected String TAG;
     protected OnFragmentInteractionListener mListener;
     protected View fragmentRootView;
     protected Toolbar toolbar;
     protected Handler baseHandler;
+    protected AlertDialog dialog;
 
     public FragmentBase() {
         TAG = getClass().getSimpleName();
@@ -49,6 +53,7 @@ public class FragmentBase extends Fragment implements Handler.Callback {
             toolbar = ((ActivityBase) activity).toolbar;
             toolbar.setVisibility(View.VISIBLE);
             baseHandler = new Handler(this);
+            toolbar.setNavigationOnClickListener(this);
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement OnFragmentInteractionListener");
         }
@@ -57,12 +62,14 @@ public class FragmentBase extends Fragment implements Handler.Callback {
     @Override
     public void onPause() {
         super.onPause();
+
         //        LogUtils.i(TAG, "onPause()");
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        toolbar.setNavigationIcon(R.drawable.ic_launcher);
         //        LogUtils.i(TAG, "onResume()");
     }
 
@@ -92,5 +99,49 @@ public class FragmentBase extends Fragment implements Handler.Callback {
         return false;
     }
 
+    /**
+     * 显示加载页面
+     * @return 当前的对话框对象
+     * @param loadingText 加载提示文字
+     */
+    protected void showLoadingDialog(String loadingText) {
 
+        if (dialog == null) {
+            TianmaDailogBuilder tianmaDailogBuilder = new TianmaDailogBuilder(getActivity());
+            View loadingView = View.inflate(getActivity(), R.layout.loading_layout, null);
+            TextView loadTextView = (TextView) loadingView.findViewById(R.id.loadingText);
+            loadTextView.setText(loadingText);
+            tianmaDailogBuilder.setCustomContent(false, loadingView, false);
+            dialog = tianmaDailogBuilder.create();
+            dialog.show();
+        } else {
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
+            dialog.show();
+        }
+    }
+
+    /**
+     * 显示加载页面
+     * @return 当前的对话框对象
+     */
+    protected void showLoadingDialog() {
+
+        showLoadingDialog(getString(R.string.loading));
+    }
+
+    protected void dissmissLoadingDialog() {
+
+        if (dialog != null && dialog.isShowing()) {
+            dialog.dismiss();
+        }
+    }
+
+    @Override public void onClick(View v) {
+        if(v.getId() == -1){
+            LogUtils.i(TAG, "点击了返回键");
+            getActivity().onBackPressed();
+        }
+    }
 }

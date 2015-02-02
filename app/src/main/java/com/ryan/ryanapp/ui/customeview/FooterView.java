@@ -36,6 +36,7 @@ public class FooterView extends LinearLayout {
         footerView = View.inflate(getContext(), R.layout.footerview_layout, this);
         progressBar = (ProgressBar) footerView.findViewById(R.id.progressBar);
         loadingText = (TextView) footerView.findViewById(R.id.loadingText);
+        footerView.setBackgroundResource(R.color.transparent);
         LayoutParams params = new LayoutParams(RyanApp.instance.getScreentSize().getWidth(), (int) UnitFormatter.dp2px(56));
         params.topMargin = 1;
         params.gravity = Gravity.CENTER;

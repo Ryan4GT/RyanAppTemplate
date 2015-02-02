@@ -8,12 +8,20 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.FindCallback;
+import com.avos.avoscloud.SaveCallback;
 import com.ryan.ryanapp.R;
 import com.ryan.ryanapp.Utils.LogUtils;
 import com.ryan.ryanapp.leancloud.LeanCloudUtils;
+import com.ryan.ryanapp.leancloud.bean.TestAVObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ActivityMain extends ActivityBase {
 
@@ -39,9 +47,13 @@ public class ActivityMain extends ActivityBase {
         meTab.setOnClickListener(this);
         setCurrentTab(MAIN_TAB);
         LogUtils.i(TAG, AVUser.getCurrentUser() == null ? "当前用户为空" : "当前用户是否已登录 ： " + AVUser.getCurrentUser().isAuthenticated());
-//        if(AVUser.getCurrentUser() == null || AVUser.getCurrentUser().isAuthenticated()) {
-//            startActivity(new Intent(this, ActivityLogin.class));
-//        }
+        if(AVUser.getCurrentUser() == null || !AVUser.getCurrentUser().isAuthenticated()) {
+            startActivity(new Intent(this, ActivityLogin.class));
+        }
+
+
+        TestAVObject.testSaveMapData();
+
     }
 
     public void setCurrentTab(int position) {

@@ -1,13 +1,61 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.ryan.ryanapp.ui.FragmentMe">
+<com.ryan.ryanapp.ui.customeview.BounceScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                  android:layout_width="match_parent"
+                                                  android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/fragment_me_title"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context="com.ryan.ryanapp.ui.FragmentMe">
 
-</FrameLayout>
+        <RelativeLayout
+            android:layout_marginTop="@dimen/_16dp"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:padding="@dimen/_5dp"
+            android:layout_height="wrap_content">
+
+            <com.ryan.ryanapp.ui.customeview.CircleImageView
+                android:src="@drawable/naruto"
+                android:layout_width="@dimen/_56dp"
+                android:id="@+id/headImageView"
+                app:border_width="@dimen/_2dp"
+                app:border_color="@color/activity_background"
+                android:layout_height="@dimen/_56dp"/>
+
+            <TextView
+                android:text="nickname"
+                android:layout_marginLeft="@dimen/_5dp"
+                android:layout_toRightOf="@+id/headImageView"
+                android:id="@+id/nicknameView"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:text="发布商品"
+            android:id="@+id/exposeGoodsView"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_16dp"
+            android:gravity="center"
+            android:layout_height="@dimen/_56dp"/>
+
+        <TextView
+            android:text="我的商品"
+            android:id="@+id/exposedGoodsView"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_1px"
+            android:gravity="center"
+            android:layout_height="@dimen/_56dp"/>
+
+    </LinearLayout>
+</com.ryan.ryanapp.ui.customeview.BounceScrollView>
+
+

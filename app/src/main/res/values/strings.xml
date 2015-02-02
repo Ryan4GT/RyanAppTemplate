@@ -12,6 +12,7 @@
     <string name="fragment_me_title">FragmentMe</string>
     <string name="load_more">加载更多……</string>
     <string name="title_activity_activity_splash">ActivitySplash</string>
-
+    <string name="loading">请稍等</string>
+    <string name="title_activity_activity_me_detail">MeDetail</string>
 
 </resources>

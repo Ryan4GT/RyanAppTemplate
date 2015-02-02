@@ -1,0 +1,39 @@
+<com.ryan.ryanapp.ui.customeview.BounceScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                  xmlns:tools="http://schemas.android.com/tools"
+                                                  android:layout_width="match_parent"
+                                                  android:fillViewport="true"
+                                                  android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context="com.ryan.ryanapp.ui.FragmentExposeGoods">
+
+        <ImageView
+            android:id="@+id/goodImageView"
+            android:src="@drawable/naruto"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"/>
+
+        <EditText
+            android:id="@+id/goodsNameView"
+            android:hint="商品名称"
+            android:layout_marginTop="@dimen/_16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:layout_marginTop="@dimen/_16dp"
+            android:id="@+id/goodsPriceView"
+            android:hint="商品价格"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+</com.ryan.ryanapp.ui.customeview.BounceScrollView>
+
+
+

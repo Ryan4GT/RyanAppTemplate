@@ -93,20 +93,14 @@ public class FragmentLogin extends FragmentBase {
         View focusView = null;
 
         if(!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
+            mPasswordView.setError("无效的密码");
             focusView = mPasswordView;
             cancel = true;
         }
 
         if(StringUtil.isEmpty(email) || email.length() < 3) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
+            mEmailView.setError("无效的用户名");
             focusView = mEmailView;
-            cancel = true;
-        }
-
-        if(StringUtil.isEmpty(password)) {
-            mEmailView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
             cancel = true;
         }
 

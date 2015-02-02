@@ -2,7 +2,9 @@ package com.ryan.ryanapp.leancloud.bean;
 import com.avos.avoscloud.AVClassName;
 import com.avos.avoscloud.AVObject;
 import com.ryan.ryanapp.Utils.LogUtils;
-import com.ryan.ryanapp.Utils.StringUtil;
+
+import java.util.Map;
+
 /**
  * 作者: Ryan
  * 创建时间:15/1/27 11:18
@@ -20,13 +22,18 @@ public class Goods extends AVObject {
         return getString("goodsName");
     }
 
-    public void setDisplayImages(String displayImages) {
+    public void setDisplayImages(Map<String, String> displayImages) {
+
+
         put("displayImages", displayImages);
+
     }
 
-    public String getDisplayImages() {
-        return getString("displayImages");
+    public Map<String, String> getDisplayImages() {
+
+        return getMap("displayImages");
     }
+
 
     public void setPrice(float price) {
         put("price", price + "");

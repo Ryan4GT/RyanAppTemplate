@@ -33,7 +33,7 @@
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/prompt_email"
+                android:hint="惊天地泣鬼神的名字"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:singleLine="true"/>
@@ -42,9 +42,8 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/prompt_password"
+                android:hint="神不知鬼不觉的密码"
                 android:imeActionId="@+id/login"
-                android:imeActionLabel="@string/action_sign_in_short"
                 android:imeOptions="actionUnspecified"
                 android:inputType="textPassword"
                 android:maxLines="1"
@@ -56,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/action_sign_in"
+                android:text="登录/注册"
                 android:textStyle="bold"/>
 
         </LinearLayout>
